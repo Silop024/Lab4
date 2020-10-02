@@ -1,0 +1,29 @@
+Four most important types of graph models:
+
+* Undirected graphs have simple connections
+
+* di-graphs where the direction of each connection is significant
+
+* edge-weighted graphs where each connection has an associated weight
+
+* edge-weighted di-graphs where each connection has both a direction and a weight.
+
+A graph is a set of vertices (points) and a collection of edges (lines) that each connect a pair of vertices.
+
+UNDIRECTED GRAPHS:
+
+We use names 0 to V-1 as names for our vertices in a V-vertex graph. (V nr of vertices), this is so that we can use array indexing to access information corresponding to each vertex.
+
+Can use symbol table to establish a 1-1 mapping to associate V arbitrary vertex names with the V integers between 0 and V-1.
+
+v-w regers to an edge that connects v and w, w-v refers to the same edge.
+
+Two simple anomalies:
+
+* A self-loop is an edge that connects a vertex to itself
+
+* Two edges that connect the same pair of vertices are parallel.
+
+These are allowed but not included in the examples.
+
+
