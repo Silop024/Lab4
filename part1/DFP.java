@@ -35,6 +35,11 @@ public class DFP
     {
         return marked[v];
     }
+    //
+    public String toString(Graph G)
+    {
+        return G.toString();
+    }
     //Iterate through the vertices on a path from s to any vertex connected to s.
     public Iterable<Integer> pathTo(int v)
     {

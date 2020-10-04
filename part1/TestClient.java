@@ -5,17 +5,31 @@ public class TestClient
 {
     public static void main(String[] args) throws FileNotFoundException
     {
-        File f = new File("/home/jack/Desktop/DataStructures/Lab4/part1/test.txt");
-        Scanner in = new Scanner(f);
-        Graph G = new Graph(in);
-        int s = 0;
-        DFP search = new DFP(G, s);
+        File text = new File("C:/Users/chimp/Desktop/Datastructure/Lab4/part1/database.txt");
+        String delim = " ";
+
+        SymbolGraph sg = new SymbolGraph(text, delim);
+
+        Graph G = sg.G();
+
+        System.out.println("What is the source vertex?");
+        Scanner in = new Scanner(System.in);
+        int s = in.nextInt();
+
+        DFP deapthFirstPath = new DFP(G, s);
+        BFS breadthFirstSearch = new BFS(G, s);
+
+
+        System.out.println
+        ("Do you want to use DeapthFirstPath or BreadthFirstSearch?");
+        System.out.println("1 for DFP 2 for BFS 3 for both");
+
 
         for(int v = 0; v < G.V(); v++)
         {
             System.out.print(s + " to " + v + ": ");
-            if(search.hasPathTo(v))
-                for(int x : search.pathTo(v))
+            if(deapthFirstPath.hasPathTo(v))
+                for(int x : deapthFirstPath.pathTo(v))
                 {
                     if(x == s)
                         System.out.print(x);
@@ -24,5 +38,6 @@ public class TestClient
                 }
             System.out.println();
         }
+        System.out.println(G.toString());
     }
 }

@@ -63,6 +63,26 @@ public class Graph
         //Tally nr of edges
         E++;
     }
+
+    public String toString()
+    {
+        //Initialize the string
+        String s = V + " vertices " + E + " edges\n";
+        //For all vertices in the graph
+        for(int v = 0; v < V; v++)
+        {
+            //Append the vertex into the string
+            s += v + " ";
+            //Call our iterator to get all the adjacent vertices to v
+            //for each vertex w adjacemt to v
+            for(int w : this.adj(v))
+                //Append the vertex into the string
+                s += w + " ";
+            //Append new line to have space between the adjacency lists
+            s += "\n";
+        }
+        return s;
+    }
     //Allows iteration through the vertices adjacent to a given vertex
     //returns bag at index v in the array
     public Iterable<Integer> adj(int v)
