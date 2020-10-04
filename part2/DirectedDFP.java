@@ -1,4 +1,4 @@
-public class DFP
+public class DirectedDFP
 {
     //Has this vertex been visited?
     private boolean[] marked;
@@ -8,15 +8,23 @@ public class DFP
     private final int s;
     //Takes a source vertex s as argument and computes paths from s to
     //each vertex connected to s.
-    public DFP(Graph G, int s)
+    public DirectedDFP(Digraph G, int s)
     {
         marked = new boolean[G.V()];
         edgeTo = new int[G.V()];
         this.s = s;
         dfs(G, s);
     }
+    //Not needed for lab
+    // public DirectedDFP(Digraph G, Iterable<Integer> sources)
+    // {
+    //     marked = new boolean[G.V()];
+    //     for(int s : sources)
+    //         if(!marked[s])
+    //             dfs(G, s);
+    // }
 
-    private void dfs(Graph G, int v)
+    private void dfs(Digraph G, int v)
     {
         //Mark vertex as having been visited
         marked[v] = true;
@@ -30,6 +38,12 @@ public class DFP
                 dfs(G, w);
             }
     }
+
+    // public boolean marked(int v)
+    // {
+    //     return marked[v];
+    // }
+
     //Returns true if there is a path from s to v
     public boolean hasPathTo(int v)
     {
